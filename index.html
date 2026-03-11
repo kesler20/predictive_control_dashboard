@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- cdn for plotly -->
+    <script src="https://cdn.plot.ly/plotly-2.16.1.min.js"></script>
+    <!-- roboto font family -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    />
+    <!-- poppins font family -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <!-- font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>Predictive Maintenance</title>
+    <link rel="icon" href="static/leaf.svg" />
+    <link rel="stylesheet" href="static/style.css" />
+    <link rel="stylesheet" href="static/clock.css" />
+    <link rel="stylesheet" href="static/navbar.css" />
+  </head>
+  <body>
+    <!-- the navbar at the top of the application -->
+    <div class="navbar">
+      <h3>This Dashboard Shows an example of Predictive Control</h3>
+      <div class="navbar__buttons">
+        <button id="about" class="btn" type="button">
+          <span class="fa fa-question"></span>
+        </button>
+        <a href="https://github.com/kesler20/predictive_maintenance_dashboard">
+          <button class="btn" type="button">
+            <span class="fa fa-github"></span>
+          </button>
+        </a>
+        <button id="power-btn" class="btn" type="button">
+          <span class="fa fa-power-off"></span>
+        </button>
+      </div>
+      </div>
+    </div>
+
+    <!-- control panel card -->
+    <div class="card">
+      <!-- digital clock showing weeks left before replacement 
+      in order to change the value of the digits change the class i.e
+      from five to two -->
+      <div id="clock" class="dark">
+        <div class="display">
+          <div class="weekdays">
+            <span class="active">SUN</span><span>MON</span><span>TUE</span
+            ><span>WED</span><span>THU</span><span>FRI</span><span>SAT</span>
+          </div>
+          <div class="alarm"></div>
+          <div class="digits">
+            <div class="five">
+              <span class="d1"></span><span class="d2"></span
+              ><span class="d3"></span><span class="d4"></span
+              ><span class="d5"></span><span class="d6"></span
+              ><span class="d7"></span>
+            </div>
+            <div class="five">
+              <span class="d1"></span><span class="d2"></span
+              ><span class="d3"></span><span class="d4"></span
+              ><span class="d5"></span><span class="d6"></span
+              ><span class="d7"></span>
+            </div>
+            <div class="five">
+              <span class="d1"></span><span class="d2"></span
+              ><span class="d3"></span><span class="d4"></span
+              ><span class="d5"></span><span class="d6"></span
+              ><span class="d7"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- upper section of the control panel card
+      this section will control the set temperature
+      and show how the PID controller impacts the reactor -->
+      <div id="area1">
+        <div id="dial_bg1">
+          <svg
+            width="500"
+            height="500"
+            viewBox="0 0 500 500"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <linearGradient id="gradient1" x1="0" x2="1" y1="0" y2="0">
+              <stop offset="0%" stop-color="#4fa6ce" />
+              <stop offset="33%" stop-color="#6fddca" />
+              <stop offset="66%" stop-color="#e79161" />
+              <stop offset="100%" stop-color="#c1574d" />
+            </linearGradient>
+            <path
+              d="M80.3 419.7 A240 240, 0, 1, 1, 419.7 419.7"
+              stroke="url(#gradient1)"
+              fill="none"
+              stroke-width="20"
+              stroke-linecap="round"
+            />
+          </svg>
+          <div id="dial1">
+            <div id="dial-pointer1"></div>
+            <div id="value-box1">
+              <span id="value1">200</span>
+              <span id="unit1">º</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <span class="button left normal" style="--color: #e79161">Kelvin</span>
+        <span class="button right pushed" style="--color: #e79161"
+          >Celsius</span
+        >
+      </div>
+
+      <div class="box1">
+        <div class="name1">
+          <span>Temperature</span>
+          <span>Control</span>
+        </div>
+        <div class="lane1">
+          <span class="knob1"></span>
+        </div>
+      </div>
+
+      <hr />
+      <!-- lower section of the control panel card
+      this section will control the PID controller parameters -->
+      <div id="area2">
+        <div id="dial_bg2">
+          <svg
+            width="500"
+            height="500"
+            viewBox="0 0 500 500"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <linearGradient id="gradient2" x1="0" x2="1" y1="0" y2="0">
+              <stop offset="0%" stop-color="#07b2cc" />
+              <stop offset="33%" stop-color="#6527a5" />
+              <stop offset="66%" stop-color="#067edf" />
+              <stop offset="100%" stop-color="#160846" />
+            </linearGradient>
+            <path
+              d="M80.3 419.7 A240 240, 0, 1, 1, 419.7 419.7"
+              stroke="url(#gradient2)"
+              fill="none"
+              stroke-width="20"
+              stroke-linecap="round"
+            />
+          </svg>
+          <div id="dial2">
+            <div id="dial-pointer2"></div>
+            <div id="value-box2">
+              <span id="value2">0</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="box2">
+        <div class="name2">
+          <span>Temperature</span>
+          <span>Control</span>
+        </div>
+        <div class="lane2">
+          <span class="knob2"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- plot area -->
+    <div class="plot">
+      <div id="plot1">
+        <div class="inner-plot"></div>
+      </div>
+      <div id="plot2">
+        <div class="inner-plot"></div>
+      </div>
+    </div>
+
+    <script src="static/graphData.js"></script>
+    <script src="static/navbar.js"></script>
+    <script src="static/card.js"></script>
+  </body>
+</html>

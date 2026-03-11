@@ -1,0 +1,395 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+hr {
+  width: 100%;
+  height: 5px;
+  border: 1px solid black;
+}
+
+body {
+  background: linear-gradient(to right bottom, #444144, #242328);
+  display: grid;
+  grid-template-columns: 40% 60%;
+  height: 150vh;
+  z-index: 1;
+  overflow-x: hidden;
+}
+
+.plot {
+  margin-top: 195px;
+  height: 830px;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+
+
+#plot1 {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  padding-top: 0px;
+}
+
+.inner-plot {
+  width: 100%;
+  height: 100%;
+}
+
+#plot2 {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+}
+
+.card {
+  position: relative;
+  width: 500px;
+  height: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 12px;
+  background: linear-gradient(to right bottom, #444144, #242328);
+  border: 4px #090909 solid;
+  box-shadow: inset 2px 2px 0px #7d7c7e, inset -2px -2px 0px #1c1c1c;
+  scale: 0.7;
+}
+
+.card::before {
+  position: absolute;
+  content: "";
+  width: 501px;
+  padding-bottom: 5px;
+  height: 1100px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: inherit;
+  background-color: linear-gradient(145deg, #262626, #606060);
+  box-shadow: 11px 11px 22px #141414, -11px -11px 22px #525252;
+  z-index: -1;
+}
+
+.box1,
+.box2 {
+  position: relative;
+  width: 600px;
+  height: 100px;
+  background: linear-gradient(90deg, #3d4048, #454850);
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  scale: 0.7;
+}
+
+.name1,
+.name2 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0px 30px;
+}
+
+.name1 span,
+.name2 span {
+  color: #c3b7b1;
+  text-shadow: 0 1px 1px black;
+  font-weight: 500;
+  user-select: none;
+}
+
+.lane1,
+.lane2 {
+  position: relative;
+  width: 400px;
+  height: 30px;
+  border-radius: 15px;
+  background: linear-gradient(180deg, #2b3138, #393d45);
+  box-shadow: inset 1px 1px 5px rgba(0, 0, 0, 0.3),
+    inset -1px -1px 5px rgba(0, 0, 0, 0.3), 0 1px 1px rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lane2::before {
+  content: "";
+  position: absolute;
+  width: 380px;
+  height: 10px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #07b2cc, #6527a5, #067edf, #160846);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.lane1::before {
+  content: "";
+  position: absolute;
+  width: 380px;
+  height: 10px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #4fa6ce, #6fddca, #e79161, #c1574d);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.knob1,
+.knob2 {
+  position: absolute;
+  left: -15px;
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  background: linear-gradient(180deg, #555961, #3c4249);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.1),
+    0 10px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.knob1::before,
+.knob2::before {
+  content: "";
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  background: linear-gradient(180deg, #44474f, #4f535b);
+  box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+.value1,
+.value2 {
+  color: #c3b7b1;
+  text-shadow: 0 1px 1px black;
+  font-size: 3em;
+  margin-top: 10px;
+}
+
+/* dial indicator section */
+
+#area1,
+#area2 {
+  position: relative;
+  width: 660px;
+  height: 205px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  scale: 0.3;
+}
+
+#dial_bg1,
+#dial_bg2 {
+  position: relative;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #252b32, #2a2f37);
+  box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.1),
+    0 2px 2px rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#dial1,
+#dial2 {
+  position: absolute;
+  width: 440px;
+  height: 440px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #565a62, #3a3f49);
+  box-shadow: inset 0 2px 2px rgba(255, 255, 255, 0.1),
+    inset 0 -2px 2px rgba(0, 0, 0, 0.1), 0 20px 20px rgba(0, 0, 0, 0.4),
+    0 50px 50px rgba(0, 0, 0, 0.3), 0 70px 70px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#dial1::before,
+#dial2::before {
+  content: "";
+  position: absolute;
+  width: 330px;
+  height: 330px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #0f1a1f, #181b23);
+  box-shadow: 0 -5px 2px rgba(0, 0, 0, 0.2), 0 5px 2px rgba(255, 255, 255, 0.1);
+}
+
+#dial-pointer1,
+#dial-pointer2 {
+  position: absolute;
+  width: 311.12px;
+  height: 311.12px;
+  transform: rotate(0deg);
+}
+
+#dial-pointer1::before,
+#dial-pointer2::before {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  left: 5px;
+  top: 276.12px;
+  border-radius: 50%;
+  background: #3f444e;
+  box-shadow: inset 0 7px 7px rgba(0, 0, 0, 0.2),
+    0 1px 2px rgba(255, 255, 255, 0.2);
+  transform: var(--rotate, rotate(0deg));
+}
+
+#value-box1,
+#value-box2 {
+  position: absolute;
+  color: white;
+}
+
+#value1,
+#value2 {
+  font-size: 8em;
+  font-weight: 600;
+}
+
+#unit1,
+#unit2 {
+  display: inline-block;
+  font-size: 5em;
+  font-weight: 600;
+  vertical-align: top;
+  padding-top: 20px;
+}
+#unit1.hide {
+  display: none;
+}
+
+/* button switch section  */
+
+.container {
+  position: relative;
+  width: 200px;
+  height: 60px;
+  border-radius: 30px;
+  background: linear-gradient(180deg, #322d2f, #4a474a);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  scale: 0.7;
+}
+
+.button {
+  position: relative;
+  width: 90px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.left {
+  border-radius: 20px 0 0 20px;
+}
+
+.right {
+  border-radius: 0 20px 20px 0;
+}
+
+.normal {
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  background: linear-gradient(180deg, #4a4549, #2e292d);
+  color: rgba(120, 114, 118, 0.8);
+  text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.7), -1px -1px 0 rgba(0, 0, 0, 0.7);
+  box-shadow: 0 7px 5px rgba(0, 0, 0, 0.5);
+}
+
+.pushed {
+  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.5),
+    inset -5px 0 10px rgba(0, 0, 0, 0.5);
+  color: var(--color);
+  text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.7);
+}
+
+.pushed::before {
+  position: absolute;
+  content: "";
+  width: 0px;
+  height: 0px;
+  bottom: 0px;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0),
+    var(--color),
+    rgba(0, 0, 0, 0)
+  );
+  animation: underline-ani 0.5s linear 1 forwards;
+}
+
+@media (max-width: 800px) {
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 300vh;
+  }
+}
+
+@media (max-width: 400px) {
+  .card {
+    display: none;
+  }
+}
+
+@keyframes underline-ani {
+  0% {
+    width: 0px;
+    height: 0px;
+    bottom: 0px;
+  }
+  100% {
+    width: 50px;
+    height: 1px;
+    bottom: 1px;
+  }
+}
+
+.pushed::after {
+  position: absolute;
+  content: "";
+  width: 0px;
+  height: 0px;
+  bottom: 0px;
+  background: var(--color);
+  filter: blur(5px) opacity(0.3);
+  animation: blur-bg-ani 0.5s linear 1 forwards;
+}
+
+@keyframes blur-bg-ani {
+  0% {
+    width: 0px;
+    height: 0px;
+    bottom: 0px;
+  }
+  100% {
+    width: 50px;
+    height: 20px;
+    bottom: 1px;
+  }
+}

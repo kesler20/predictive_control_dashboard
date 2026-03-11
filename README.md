@@ -1,2 +1,3 @@
-# predictive_control_dashboard
-A cool predictive control example
+# Predictive Maintenance Dashboard
+
+the dashboard is deployed here: https://predictivemaintenancedashboard-production.up.railway.app/app
